@@ -10,6 +10,8 @@ source $(conda info --base)/etc/profile.d/conda.sh
 conda config --add pkgs_dirs $SCRATCH/conda_pkgs
 conda config --add envs_dirs $SCRATCH/conda_envs
 
+conda env remove -n rl_env -y
+
 conda create -n rl_env python=3.11 -y
 source $(conda info --base)/etc/profile.d/conda.sh
 conda activate rl_env

@@ -1,7 +1,7 @@
 ml purge
 ml WebProxy
 ml CUDA/12.9.0
-ml Miniconda3/24.11.1
+ml Anaconda3/2024.02-1
 
 mkdir -p $SCRATCH/conda_pkgs
 mkdir -p $SCRATCH/conda_envs

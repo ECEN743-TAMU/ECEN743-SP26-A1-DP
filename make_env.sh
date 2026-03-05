@@ -3,6 +3,8 @@ ml WebProxy
 ml CUDA/12.9.0
 ml Anaconda3/2024.02-1
 
+export PYTHONNOUSERSITE=1
+
 mkdir -p $SCRATCH/conda_pkgs
 mkdir -p $SCRATCH/conda_envs
 
@@ -11,11 +13,12 @@ conda config --add pkgs_dirs $SCRATCH/conda_pkgs
 conda config --add envs_dirs $SCRATCH/conda_envs
 
 conda env remove -n rl_env -y
+source $(conda info --base)/etc/profile.d/conda.sh
 
 conda create -n rl_env python=3.11 -y
 source $(conda info --base)/etc/profile.d/conda.sh
 conda activate rl_env
 
-pip install torch --index-url https://download.pytorch.org/whl/cu126
+pip install torch --index-url https://download.pytorch.org/whl/cu128
 pip install swig gymnasium[other] gymnasium[box2d]
 pip install ipykernel notebook
